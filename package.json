@@ -1,0 +1,34 @@
+{
+  "name": "roslyn.formhelper",
+  "version": "1.0.6",
+  "description": "Json Serialize from Html Form",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkheesung/npm.formhelper.git"
+  },
+  "keywords": [
+    "HTML",
+    "FORM",
+    "JSON",
+    "SUBMIT"
+  ],
+  "author": {
+    "name": "Jamie Roslyn",
+    "email": "yunlang97@naver.com",
+    "url": "https://parkheesung.github.io"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parkheesung/npm.formhelper/issues"
+  },
+  "homepage": "https://github.com/parkheesung/npm.formhelper#readme",
+  "dependencies": {
+    "npm": "^8.19.0",
+    "react": "^18.2.0"
+  }
+}
