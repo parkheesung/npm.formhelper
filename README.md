@@ -7,7 +7,9 @@
 
 ## Release
 
-- npm install roslyn.formhelper
+```cmd
+npm install roslyn.formhelper
+```
 
 > 버전은 1.0.6 이 정상동작하는 배포 버전입니다. 
 
