@@ -22,9 +22,9 @@ const formHelper = (targetID, callback) => {
 
         if (selects !== null && selects.length > 0) {
             for(let i = 0; i < selects.length; i++) {
-                if (selects[i].hasAttribute("value") && selects[i].hasAttribute("name")) {
+                if (selects[i].hasAttribute("name")) {
                     name = selects[i].getAttribute("name");
-                    value = selects[i].value;
+                    value = selects[i].options[selects[i].selectedIndex].value;
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
                         result[name] = value;
                     }
@@ -34,7 +34,7 @@ const formHelper = (targetID, callback) => {
 
         if (texts !== null && texts.length > 0) {
             for(let i = 0; i < texts.length; i++) {
-                if (texts[i].hasAttribute("value") && texts[i].hasAttribute("name")) {
+                if (texts[i].hasAttribute("name")) {
                     name = texts[i].getAttribute("name");
                     value = texts[i].value;
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
