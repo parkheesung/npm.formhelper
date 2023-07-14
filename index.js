@@ -1,4 +1,11 @@
-const formHelper = (targetID, callback) => {
+const formHelper = async (targetID, callback) => {
+    let result = await formHelperSync(targetID);
+    if (callback !== null && callback !== undefined && typeof callback === "function") {
+        callback(result);
+    }
+};
+
+const formHelperSync = async (targetID) => {
     let result = {};
     let target = document.getElementById(targetID);
     if (target !== null) {
@@ -43,11 +50,10 @@ const formHelper = (targetID, callback) => {
                 }
             }
         }
-
-        if (callback !== null && callback !== undefined && typeof callback === "function") {
-            callback(result);
-        }
     }
+
+    return result;
 };
 
 exports.formHelper = formHelper;
+exports.formHelperSync = formHelperSync;
