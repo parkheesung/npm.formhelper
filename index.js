@@ -17,11 +17,15 @@ const formHelperSync = async (targetID) => {
 
         if (inputs !== null && inputs.length > 0) {
             for(let i = 0; i < inputs.length; i++) {
-                if (inputs[i].hasAttribute("value") && inputs[i].hasAttribute("name")) {
+                if (inputs[i].hasAttribute("name")) {
                     name = inputs[i].getAttribute("name");
                     value = inputs[i].value;
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
-                        result[name] = value;
+                        if (result[name] !== null && result[name] !== undefined && String(result[name]) !== "") {
+                          result[name] += "," + value;
+                        } else {
+                          result[name] = value;
+                        }
                     }
                 }
             }
@@ -33,7 +37,11 @@ const formHelperSync = async (targetID) => {
                     name = selects[i].getAttribute("name");
                     value = selects[i].options[selects[i].selectedIndex].value;
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
-                        result[name] = value;
+                      if (result[name] !== null && result[name] !== undefined && String(result[name]) !== "") {
+                          result[name] += "," + value;
+                        } else {
+                          result[name] = value;
+                        }
                     }
                 }
             }
@@ -45,7 +53,11 @@ const formHelperSync = async (targetID) => {
                     name = texts[i].getAttribute("name");
                     value = texts[i].value;
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
-                        result[name] = value;
+                      if (result[name] !== null && result[name] !== undefined && String(result[name]) !== "") {
+                          result[name] += "," + value;
+                        } else {
+                          result[name] = value;
+                        }
                     }
                 }
             }
