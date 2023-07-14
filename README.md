@@ -2,6 +2,8 @@
 
 대상 form 안에 존재하는 모든 요소들의 값을 json 형태로 반환해주는 함수입니다.
 
+React.js, Vue.js 등에서 동적으로 생성된 input, select, textarea 등 입력값을 일괄로 받을 때 편리하게 이용하실 수 있습니다.
+
 타입스크립트에서 사용 가능합니다.
 
 ---
@@ -41,7 +43,7 @@ await formHelper("frm", function(jsonData) {
 });
 
 //동기식
-import { formHelper } from 'roslyn.formhelper';
+import { formHelperSync } from 'roslyn.formhelper';
 let jsonData = await formHelperSync("frm");
 console.log(jsonData);
 // { name : "홍길동", email : "hong@email.com", age : "23", gender : "남" }
