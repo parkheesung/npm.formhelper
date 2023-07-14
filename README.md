@@ -12,7 +12,7 @@
 npm install roslyn.formhelper
 ```
 
-> 버전은 1.0.6 이 정상동작하는 배포 버전입니다. 
+> 버전은 1.1.1 이 정상동작하는 배포 버전입니다. 
 
 ---
 
@@ -31,13 +31,20 @@ npm install roslyn.formhelper
 </form>
 ```
 
-리액트에서 다음과 같이 호출합니다.
+다음과 같이 호출합니다.
 ```javascript
+//비동기식
 import { formHelper } from 'roslyn.formhelper';
-formHelper("frm", function(jsonData) {
+await formHelper("frm", function(jsonData) {
     console.log(jsonData);
     // { name : "홍길동", email : "hong@email.com", age : "23", gender : "남" }
 });
+
+//동기식
+import { formHelper } from 'roslyn.formhelper';
+let jsonData = await formHelperSync("frm");
+console.log(jsonData);
+// { name : "홍길동", email : "hong@email.com", age : "23", gender : "남" }
 ```
 
 > 입력항목에 name 필드는 필수항목입니다.
@@ -48,5 +55,4 @@ formHelper("frm", function(jsonData) {
 
 프로젝트는 다음에 의존성을 가집니다.
   - npm 
-  - react 
 
