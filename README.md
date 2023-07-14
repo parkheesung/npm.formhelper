@@ -10,7 +10,7 @@ React.js, Vue.js 등에서 동적으로 생성된 input, select, textarea 등 �
 
 ## Release
 
-```cmd
+```shell
 npm install roslyn.formhelper
 ```
 
