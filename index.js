@@ -9,22 +9,43 @@ const formHelperSync = async (targetID) => {
     let result = {};
     let target = document.getElementById(targetID);
     if (target !== null) {
-        let inputs = target.querySelectorAll("input");
+        // input type="radio" 또는 input type="checkbox" 요소들을 가져옴
+        let radiosAndCheckboxes = target.querySelectorAll("input[type=radio], input[type=checkbox]");
+
+        // input type="radio" 또는 input type="checkbox" 요소들을 제외한 다른 input 요소들을 가져옴
+        let otherInputs = target.querySelectorAll("input:not([type=radio]):not([type=checkbox])");
+
         let selects = target.querySelectorAll("select");
         let texts = target.querySelectorAll("textarea");
         let name = null;
         let value = null;
 
-        if (inputs !== null && inputs.length > 0) {
-            for(let i = 0; i < inputs.length; i++) {
-                if (inputs[i].hasAttribute("name")) {
-                    name = inputs[i].getAttribute("name");
-                    value = inputs[i].value;
+        if (otherInputs !== null && otherInputs.length > 0) {
+            for(let i = 0; i < otherInputs.length; i++) {
+                if (otherInputs[i].hasAttribute("name")) {
+                    name = otherInputs[i].getAttribute("name");
+                    value = otherInputs[i].value;
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
                         if (result[name] !== null && result[name] !== undefined && String(result[name]) !== "") {
                           result[name] += "," + value;
                         } else {
                           result[name] = value;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (radiosAndCheckboxes !== null && radiosAndCheckboxes.length > 0) {
+            for(let i = 0; i < radiosAndCheckboxes.length; i++) {
+                if (radiosAndCheckboxes[i].hasAttribute("name") && radiosAndCheckboxes[i].checked) {
+                    name = radiosAndCheckboxes[i].getAttribute("name");
+                    value = radiosAndCheckboxes[i].value;
+                    if (name !== null && name !== undefined && value !== null && value !== undefined) {
+                        if (result[name] !== null && result[name] !== undefined) {
+                            result[name] += "," + value;
+                        } else {
+                            result[name] = value;
                         }
                     }
                 }
