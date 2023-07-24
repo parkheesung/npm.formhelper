@@ -1,11 +1,11 @@
 {
   "name": "roslyn.formhelper",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Json Serialize from Html Form",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,10 @@
   },
   "homepage": "https://github.com/parkheesung/npm.formhelper#readme",
   "dependencies": {
-    "npm": "^8.19.0",
-    "react": "^18.2.0"
+    "npm": "^8.19.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "jsdom": "^22.1.0"
   }
 }

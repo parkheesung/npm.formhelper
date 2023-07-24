@@ -13,7 +13,7 @@ const formHelperSync = async (targetID) => {
         let radiosAndCheckboxes = target.querySelectorAll("input[type=radio], input[type=checkbox]");
 
         // input type="radio" 또는 input type="checkbox" 요소들을 제외한 다른 input 요소들을 가져옴
-        let otherInputs = target.querySelectorAll("input:not([type=radio]):not([type=checkbox])");
+        let otherInputs = target.querySelectorAll("input[type=text], input[type=hidden],input[type=url], input[type=password],input[type=email], input[type=tel]");
 
         let selects = target.querySelectorAll("select");
         let texts = target.querySelectorAll("textarea");
@@ -25,6 +25,7 @@ const formHelperSync = async (targetID) => {
                 if (otherInputs[i].hasAttribute("name")) {
                     name = otherInputs[i].getAttribute("name");
                     value = otherInputs[i].value;
+
                     if (name !== null && name !== undefined && value !== null && value !== undefined) {
                         if (result[name] !== null && result[name] !== undefined && String(result[name]) !== "") {
                           result[name] += "," + value;
